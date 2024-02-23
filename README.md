@@ -2,7 +2,6 @@
 This is a simple server which serves static files for a single page application and proxies api calls to a backend server.
 
 A json config is needed to start the server, below is a sample json
-
 ```JS
 ﻿﻿{
   "port": 3001,
@@ -26,4 +25,14 @@ A json config is needed to start the server, below is a sample json
     }
   ]
 }
+```
+All paths to files/folders will be relative the the location of the config json file
+if the path is relative. If an absolute path is provided then the absolute path will
+be used.
+
+To run the server use `cargo run -- -c ./path/to/config.json`
+or 
+```
+cargo build --release
+target/release/axum-spa-proxy -c ./path/to/config.json
 ```
